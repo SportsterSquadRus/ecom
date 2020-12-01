@@ -6,6 +6,6 @@
       <h5 class="card-title">Сумма заказа: {{ order.amount }}</h5>
       <p class="card-text">Дата заказа: {{ order.date }}</p>
       <p class="card-text">Комментарий к заказу: {{ order.comment }}</p>          
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <a href="{% url 'order_update_url' order.id %}" class="btn btn-primary">Изменить заказ</a>
     </div>
   </div>
