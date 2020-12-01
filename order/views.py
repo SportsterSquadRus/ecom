@@ -2,7 +2,7 @@
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, View, DeleteView
 from django.shortcuts import render, redirect, reverse
 from .models import Order
-from .forms import OrderForm, FilterForm
+from .forms import OrderForm
 from django.urls import reverse_lazy
 
 

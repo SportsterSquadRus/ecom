@@ -5,18 +5,10 @@ from django.shortcuts import reverse
 
 class Order(models.Model):
     """Модель заказа"""
-    date = models.DateField()
-    comment = models.CharField(
-        max_length=150,
-        verbose_name='Текст заказа'
-    )
-    amount = models.DecimalField(
-        max_digits=9,
-        decimal_places=2,
-        blank=True,
-        null=True,
-        verbose_name='Сумма'
-    )
+    date = models.DateField(verbose_name='Дата заказа')
+    agent = models.CharField(max_length=100, verbose_name='Контрагент')
+    comment = models.CharField(max_length=150, verbose_name='Текст заказа')
+    amount = models.DecimalField(max_digits=9, decimal_places=2, verbose_name='Сумма заказа')
 
     class Meta:
         ordering = ['-date']

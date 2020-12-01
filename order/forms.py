@@ -4,27 +4,17 @@ from .models import Order
 
 
 class OrderForm(forms.ModelForm):
-    """Form definition for Order."""
+    """Форма создания и редактирования заказа"""
 
     class Meta:
-        """Meta definition for Orderform."""
+        """Настройки формы"""
 
         model = Order
-        fields = ('comment', 'amount', 'date')
+        fields = ('agent', 'comment', 'amount', 'date')
 
         widgets = {
+            'agent': forms.TextInput(attrs={'class': 'form-control'}),
             'comment': forms.TextInput(attrs={'class': 'form-control'}),
             'amount': forms.TextInput(attrs={'class': 'form-control'}),
             'date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
         }
-
-    def clean_amount(self):
-        if not self.cleaned_data['amount']:
-            raise forms.ValidationError(
-                "Введите значение.")
-        return self.cleaned_data['amount']
-
-
-class FilterForm(forms.Form):
-    date_left = forms.DateField(label='С...')
-    date_right = forms.DateField(label='По...')
