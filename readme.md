@@ -45,11 +45,10 @@
 
 
 2. Для удовлетворения требований, описанных в разделе "Атрибуты заказа", была создана следующая модель:
-'''
+"""
 
     class Order(models.Model):
 
-        """Модель заказа"""
 
         date = models.DateField(verbose_name='Дата заказа')
 
@@ -59,7 +58,7 @@
 
         amount = models.DecimalField(
             max_digits=9, decimal_places=2, verbose_name='Сумма заказа', validators=[MinValueValidator(Decimal('0.01'))])
-'''
+"""
 
 
 
