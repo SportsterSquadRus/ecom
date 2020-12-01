@@ -4,9 +4,10 @@
 {% block content %}
 <h1>Введите данные заказа</h1>
 
-{% csrf_token %}
-<form action="{% url 'order_create_url' %}">
+
+<form action="{% url 'order_create_url' %}" method="POST">
+    {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Сохранить заказ</button>
+    <button type="submit" class="btn btn-primary">Сохранить заказ</button>
 </form>
 {% endblock content %}

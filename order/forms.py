@@ -10,9 +10,10 @@ class OrderForm(forms.ModelForm):
         """Meta definition for Orderform."""
 
         model = Order
-        fields = ('comment', 'amount')
+        fields = ('comment', 'amount', 'date')
 
         widgets = {
             'comment': forms.TextInput(attrs={'class': 'form-control'}),
             'amount': forms.TextInput(attrs={'class': 'form-control'}),
+            'date': forms.DateInput(attrs={'class': 'form-control'}),
         }
