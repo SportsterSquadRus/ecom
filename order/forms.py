@@ -17,3 +17,9 @@ class OrderForm(forms.ModelForm):
             'amount': forms.TextInput(attrs={'class': 'form-control'}),
             'date': forms.DateInput(attrs={'class': 'form-control'}),
         }
+
+    def clean_amount(self):
+        if not self.cleaned_data['amount']:
+            raise forms.ValidationError(
+                "Введите значение.")
+        return self.cleaned_data['amount']
