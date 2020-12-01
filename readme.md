@@ -58,7 +58,6 @@
 
         amount = models.DecimalField(
             max_digits=9, decimal_places=2, verbose_name='Сумма заказа', validators=[MinValueValidator(Decimal('0.01'))])
-```
 
 
 
