@@ -1,7 +1,8 @@
 """Модуль обработки запросов"""
-from django.views.generic import ListView, CreateView, DetailView, UpdateView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, View
+from django.shortcuts import render, redirect, reverse
 from .models import Order
-from .forms import OrderForm
+from .forms import OrderForm, FilterForm
 
 
 class OrdersListView(ListView):
@@ -32,3 +33,24 @@ class OrderUpdateView(UpdateView):
     model = Order
     template_name = 'order/order_create.html'
     form_class = OrderForm
+
+
+class FilterFormView(ListView):
+    paginate_by = 4
+    template_name = "order/order_list.html"
+    context_object_name = 'orders'
+
+    def get_queryset(self):
+        start = self.request.GET.get('start')
+        stop = self.request.GET.get('stop')
+        if not start:
+            start = "1900-01-01"
+        if not stop:
+            stop = "2100-01-01"
+        return Order.objects.filter(date__range=[start, stop])
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['start'] = self.request.GET.get('start')
+    #     context['stop'] = self.request.GET.get('stop')
+    #     return context

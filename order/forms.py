@@ -15,7 +15,7 @@ class OrderForm(forms.ModelForm):
         widgets = {
             'comment': forms.TextInput(attrs={'class': 'form-control'}),
             'amount': forms.TextInput(attrs={'class': 'form-control'}),
-            'date': forms.DateInput(attrs={'class': 'form-control'}),
+            'date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
         }
 
     def clean_amount(self):
@@ -23,3 +23,8 @@ class OrderForm(forms.ModelForm):
             raise forms.ValidationError(
                 "Введите значение.")
         return self.cleaned_data['amount']
+
+
+class FilterForm(forms.Form):
+    date_left = forms.DateField(label='С...')
+    date_right = forms.DateField(label='По...')
