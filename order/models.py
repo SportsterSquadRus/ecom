@@ -1,6 +1,8 @@
 """Модуль моделей"""
 from django.db import models
 from django.shortcuts import reverse
+from django.core.validators import MinValueValidator
+from decimal import Decimal
 
 
 class Order(models.Model):
@@ -9,7 +11,7 @@ class Order(models.Model):
     agent = models.CharField(max_length=100, verbose_name='Контрагент')
     comment = models.CharField(max_length=150, verbose_name='Текст заказа')
     amount = models.DecimalField(
-        max_digits=9, decimal_places=2, verbose_name='Сумма заказа')
+        max_digits=9, decimal_places=2, verbose_name='Сумма заказа', validators=[MinValueValidator(Decimal('0.01'))])
 
     class Meta:
         ordering = ['-date']
