@@ -16,3 +16,6 @@ class Order(models.Model):
         null=True,
         verbose_name='Сумма'
     )
+
+    def __str__(self):
+        return '{}'.format(self.id)

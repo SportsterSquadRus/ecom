@@ -1,3 +1,4 @@
+"""Модуль распределения url-адресов"""
 from django.urls import path
 from . import views
 
