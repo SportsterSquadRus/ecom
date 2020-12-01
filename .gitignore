@@ -1,1 +1,5 @@
 env
+db.sqlite3
+ecom/__pycache__
+order/__pycache__
+order/migrations/__pycache__
