@@ -1,10 +1,11 @@
 <div class="card mb-5">
     <div class="card-header">
-      Номер заказа: {{ order.id }}
+      <a href="{% url 'order_detail_url' order.id %}">Номер заказа: {{ order.id }}</a>
     </div>
     <div class="card-body">
       <h5 class="card-title">Сумма заказа: {{ order.amount }}</h5>
       <p class="card-text">Дата заказа: {{ order.date }}</p>
+      <p class="card-text">Дата заказа: {{ order.agent }}</p>
       <p class="card-text">Комментарий к заказу: {{ order.comment }}</p>          
      
       <form method="post" action="{% url 'order_delete_url' order.id %}">
