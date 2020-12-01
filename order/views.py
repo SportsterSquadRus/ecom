@@ -11,8 +11,8 @@ class OrdersListView(ListView):
     context_object_name = 'orders'
     paginate_by = 4
 
-class ContactView(CreateView):
-    """Contact form view"""
+class OrderCreateView(CreateView):
+    """Создание заказа"""
     model = Order
     form_class = OrderForm
     success_url = '/'
