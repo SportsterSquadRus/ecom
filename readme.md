@@ -48,8 +48,14 @@
 class Order(models.Model):
     """Модель заказа"""
     date = models.DateField(verbose_name='Дата заказа')
+
+
     agent = models.CharField(max_length=100, verbose_name='Контрагент')
+
+
     comment = models.CharField(max_length=150, verbose_name='Текст заказа')
+
+    
     amount = models.DecimalField(
         max_digits=9, decimal_places=2, verbose_name='Сумма заказа', validators=[MinValueValidator(Decimal('0.01'))])
 
