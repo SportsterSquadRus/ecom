@@ -1,8 +1,14 @@
 """Модуль обработки запросов"""
-from django.views.generic import ListView, CreateView, DetailView, UpdateView, View
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, View, DeleteView
 from django.shortcuts import render, redirect, reverse
 from .models import Order
 from .forms import OrderForm, FilterForm
+from django.urls import reverse_lazy
+
+
+class OrderDeleteView(DeleteView):
+    model = Order
+    success_url = reverse_lazy('order_list_url')
 
 
 class OrdersListView(ListView):
