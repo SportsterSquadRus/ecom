@@ -1,8 +1,5 @@
-from django.test import TestCase, SimpleTestCase
+from django.test import TestCase
 from django.urls import reverse, resolve
-from .models import Order
-from .forms import OrderForm
-from http import HTTPStatus
 from django.test import Client, RequestFactory
 from . import views
 from .forms import OrderForm
