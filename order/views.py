@@ -54,9 +54,3 @@ class FilterFormView(ListView):
         if not stop:
             stop = "2100-01-01"
         return Order.objects.filter(date__range=[start, stop])
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['start'] = self.request.GET.get('start')
-    #     context['stop'] = self.request.GET.get('stop')
-    #     return context
